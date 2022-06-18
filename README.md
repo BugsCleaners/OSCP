@@ -81,6 +81,10 @@ Active Directory Attacks:-
 	Golden Ticket:-
 		
 		The Golden Ticket is the Kerberos authentication token for the KRBTGT account, a special hidden account with the job of encrypting all the authentication tokens for the DC. That Golden Ticket can then use a pass-the-hash technique to log into any account, allowing attackers to move around unnoticed inside the network
+	
+	Silver Ticket:-
+	
+		Silver Ticket only enables an attacker to forge ticket-granting service (TGS) tickets for specific services. TGS tickets are encrypted with the password hash for the service; therefore, if an adversary steals the hash for a service account, they can mint TGS tickets for that service.
 			
 ![image](https://user-images.githubusercontent.com/91881471/174433005-d10ed507-c66c-4760-9eff-4a1c9099ee7e.png)
 
