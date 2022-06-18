@@ -58,3 +58,4 @@ Active Directory Attacks:-
 		
 		Prevention:-
 			Use strong and complex password or host based password insted of user based password.
+	Default Settings -Add-Computer
