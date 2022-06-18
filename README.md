@@ -78,6 +78,9 @@ Active Directory Attacks:-
 		Steps:-
 			impacket-GetADUsers domain.ini/yazan:'yazan' -dc-ip 192.168.100.200 > user.txt //get all users in domain
 			crackmapexec smb 192.168.200.100 -u users.txt -p yazan // start the attack untill you find a user with the specified password
+	Golden Ticket:-
+		
+		The Golden Ticket is the Kerberos authentication token for the KRBTGT account, a special hidden account with the job of encrypting all the authentication tokens for the DC. That Golden Ticket can then use a pass-the-hash technique to log into any account, allowing attackers to move around unnoticed inside the network
 			
 ![image](https://user-images.githubusercontent.com/91881471/174433005-d10ed507-c66c-4760-9eff-4a1c9099ee7e.png)
 
