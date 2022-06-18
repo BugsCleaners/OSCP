@@ -70,3 +70,6 @@ Active Directory Attacks:-
 			impacket-addcomputer -dc-ip 192.168.100.200 domain.iti/yazan:'yazan' -computer-name Computer1$ -computer-password yazan //create a computer account the name of it must containt $ at the end 
 		Prevention:-
 			from the configuration give it only for the needed staff.
+	
+	Enumeration:-
+		impacket-GetADUsers domain.ini/yazan:'yazan' -dc-ip 192.168.100.200
