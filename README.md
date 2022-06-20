@@ -20,8 +20,6 @@ File Management:-
 		
 Privilege Escalation:-
 
-privilege escalation:-
-
 	privilege escalation awsome scripts:-
 		1-WinPEAS
 		2-LinPEAS
