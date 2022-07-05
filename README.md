@@ -34,7 +34,7 @@ File Management:-
 		ln originFile copyFile : to make hard link of originFile to copyFile
 		ln -s sourceFile copyFile : to make a soft link(shortcut in windows) to sourceFile, you will find -i when you ls -la copyFile.
 		mount -t cift -o 'user=r.yazan,password=yazan' //10.10.10.10/data /mnt/data    /mount a share from active directory user 
-
+		cat /proc/self/environ //in outdated OS unix based it will return environment variables such as remote port & user credentials
 
 
 	Windows:-
