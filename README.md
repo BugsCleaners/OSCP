@@ -13,6 +13,10 @@ Linux commands:-
 	text:-
 	
 		grep test file.txt | awk '{print $3}' |  awk -F\@ '{print $1}'  //to extract name from emails contain test 
+		
+	linux version:
+	
+		cat /etc/issue
 	
 DNS:-
 	How to get the hostname of a server using nslookup
