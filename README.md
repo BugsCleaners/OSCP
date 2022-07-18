@@ -56,6 +56,7 @@ Privilege Escalation:-
 		WinEnum
 		Windows-Exploit-Suggestor
 		J.A.W.S. (Just Another Windows Enum Script)
+		powerup
 	Windows:-
 		
 		seBackupPrivilege //related to backup https://hackinparis.com/data/slides/2019/talks/HIP2019-Andrea_Pierini-Whoami_Priv_Show_Me_Your_Privileges_And_I_Will_Lead_You_To_System.pdf
